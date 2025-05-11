@@ -139,13 +139,14 @@ def visualize_heatmap(pil_image,heatmap,bbox=None,inout_score=None):
             text_height = int(height * 0.01)
             text_x = xmin * width
             text_y = ymax * height + text_height
-            draw.text((text_x, text_y), text, fill="lime", font=ImageFont.load_default(size=int(min(width, height) * 0.05)))
-
+            # draw.text((text_x, text_y), text, fill="lime", font=ImageFont.load_default(size=int(min(width, height) * 0.05)))
+            draw.text((text_x, text_y), text, fill="lime", font=ImageFont.load_default())
+            
     return overlay_image
 
-# for i in range(len(bboxes)):
-#   plt.figure()
-#   plt.imshow(visualize_heatmap(image, output['heatmap'][0][i], norm_bboxes[0][i], inout_score=output['inout'][0][i] if output['inout'] is not None else None))
-#   plt.axis('off')
-#   plt.show()
+for i in range(len(bboxes)):
+  plt.figure()
+  plt.imshow(visualize_heatmap(image, output['heatmap'][0][i], norm_bboxes[0][i], inout_score=output['inout'][0][i] if output['inout'] is not None else None))
+  plt.axis('off')
+  plt.show()
 

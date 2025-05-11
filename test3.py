@@ -7,7 +7,8 @@ from PIL import Image
 # Device setup
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-device
+print("Number of GPUs: " + str(torch.cuda.device_count()))
+
 print("Device: " + device)
 
 # exit()
@@ -119,7 +120,7 @@ def process_video(input_path, output_path):
     out.release()
 
 def main():
-    input_video = "testvideo2.mp4"
+    input_video = "testvideo3.mp4"
     output_video = "output_viz.mp4"
     
     print(f"Processing video: {input_video}")
