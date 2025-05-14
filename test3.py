@@ -71,7 +71,7 @@ def process_frame(frame, model, transform):
             heatmap_color = cv2.applyColorMap(heatmap_resized, cv2.COLORMAP_JET)
 
             # Optional: blend the heatmap with the original frame
-            overlayed_frame = cv2.addWeighted(frame, 0.6, heatmap_color, 0.4, 0)
+            overlayed_frame = cv2.addWeighted(frame, 0.6, heatmap_color, 0.05, 0)
 
             # Replace frame with overlayed_frame (or display separately)
             frame = overlayed_frame
@@ -181,8 +181,8 @@ def process_video(input_path, output_path):
     out.release()
 
 def main():
-    input_video = "v2.mp4"
-    output_video = "output_v2.mp4"
+    input_video = "v4.mp4"
+    output_video = "output_v4.mp4"
     
     print(f"Processing video: {input_video}")
     print(f"Output will be saved to: {output_video}")
